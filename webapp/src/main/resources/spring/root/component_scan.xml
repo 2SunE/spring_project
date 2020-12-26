@@ -7,5 +7,13 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!-- Root WebApplicationContext 설정 파일 -->
+
+	<!-- use-default-filters="false"를 주면 내가 설정한 것말고는 다 객체화 x - include - Service, Repository만 객체로 만들겠다 -->
+	<context:component-scan base-package="com.mycompany.webapp" use-default-filters="false">
+		<!-- @Service, @Repository 만 객체로 관리 -->
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service" />
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />
+	</context:component-scan>
 
 </beans>

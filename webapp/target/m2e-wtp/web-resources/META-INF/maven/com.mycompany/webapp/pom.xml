@@ -41,6 +41,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
 		<!-- log4j(Log for Java) => 로그문의 출력을 다양한 대상으로 할 수 있도록 도와주는 도구(오픈 소스) -->
@@ -50,5 +51,12 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.7.30</version>
 		</dependency>
+
+		<!-- spring-webmvc (Spring MVC를 설정) -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+
 	</dependencies>
 </project>

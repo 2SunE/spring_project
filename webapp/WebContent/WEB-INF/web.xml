@@ -36,4 +36,20 @@
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+
+	<!-- 문자 인코딩 필터 설정 (POST 방식의 요청 파라미터 문자값을 UTF-8로 인코딩) -->
+	<!-- WebClient -> CharacterEncoding Filter(UTF-8 변환) -> Dispatcher Servlet 
+		-> Controller -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern> <!-- 모든 요청에 이 필터를 적용하겠다. -->
+	</filter-mapping>
 </web-app>

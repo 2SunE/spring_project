@@ -28,16 +28,27 @@
 			</plugin>
 		</plugins>
 	</build>
+	<!-- 메이븐 의존 라이브러리 설정 -->
+	<!-- POM 내부의 스프링 버전 통일, 외부 라이브러리에 의한 Spring Framework 다른 버전 사용 방지 -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency> <!-- 이것으로 인해 버전만 받은것이고. 즉 여기가 버전관리를 해준다. -->
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>5.2.8.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>	<!-- 이렇게하면 임포트 할때마다 버전 체크해서 사용하겠다. -->
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
 		<!-- log4j(Log for Java) => 로그문의 출력을 다양한 대상으로 할 수 있도록 도와주는 도구(오픈 소스) -->
-		<!-- Log level 순서 =>  trace < debug < info < warn > error < fatal -->
+		<!-- Log level 순서 => trace < debug < info < warn > error < fatal -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.7.30</version>
-			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
 </project>
